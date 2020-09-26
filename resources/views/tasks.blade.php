@@ -11,6 +11,7 @@
         <th>Task</th><th>&nbsp;</th>
     </thead>
     <tbody>
+
         @foreach ($tasks as $task)
             <tr>
               {{ $task->name }}
@@ -21,6 +22,7 @@
                 </form>
             </td>
         @endforeach
+
     </tbody>
 </table>
 

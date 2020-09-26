@@ -16,12 +16,12 @@ use App\Http\Controllers\TaskController;
 
 // Topページ
 Route::get('/', function() {
-    //return view('welcome');
+    // return view('welcome');
     return redirect('/tasks');
 });
 
 // タスク
-Route::resource('tasks', TaskController::class, ['except' => ['create', 'edit']]);
+Route::resource('tasks', TaskController::class, ['except' => ['edit']]);
 
 // Route::resource('tasks', 'App\Http\Controllers\TaskController', ['except' => ['edit']]);
 
