@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Topページ
+Route::get('/', function() {
+    //return view('welcome');
+    return redirect('/tasks');
 });
+
+// タスク
+Route::resource('tasks', TaskController::class, ['except' => ['create', 'edit']]);
+
+// Route::resource('tasks', 'App\Http\Controllers\TaskController', ['except' => ['edit']]);
+
+// Route::get('/tasks', 'TaskController@index');
+// Route::post('/tasks', 'TaskController@store');
+// Route::delete('/tasks/{task}', 'TaskController@destroy');
+
+// Route::get('/tasks', 'App\Http\Controllers\TaskController@index');
+// Route::post('/tasks', 'App\Http\Controllers\TaskController@store');
+// Route::delete('/tasks/{task}', 'App\Http\Controllers\TaskController@destroy');
+
+// 参考（httpsを強制する場合は以下）
+// \URL::forceScheme('https');
+
